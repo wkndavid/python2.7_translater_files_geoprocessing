@@ -1,3 +1,7 @@
+#!/usr/bin/python2.7
+# -*- coding: utf-8 -*-
+# -*- coding: latin-1 -*-
+
 traducoes = {
     'SH' : 'Setor Habitacional',
     'ACR' :'Abrigo Cristo Redentor',
