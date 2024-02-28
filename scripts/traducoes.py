@@ -1,6 +1,11 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 # -*- coding: latin-1 -*-
+# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-42 -*-
+
+import os, sys
+
 
 traducoes = {
     'SH' : 'Setor Habitacional',
