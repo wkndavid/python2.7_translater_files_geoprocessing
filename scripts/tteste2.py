@@ -1,35 +1,12 @@
-import pandas as pd
-import re
+# -*- coding: utf-8 -*-
+# -*- coding: latin-1 -*-
+from __future__ import unicode_literals
 
-#####################################################
-# => Traduz os acrônimos                            #
-def traduzir_palavra(palavra, dicionario):          #
-    return dicionario.get(palavra, palavra)         #
-#                                                   #
-#####################################################
-#
-################################################################################################
-# => Traduz a coluna                                                                           # 
-def traduzir_colunas(df, colunas, traducoes):                                                  #     
-    for coluna in colunas:                                                                     #     
-        df[coluna] = df[coluna].apply(lambda x: ' '.join(traduzir_palavra(palavra, traducoes)  #
-         for palavra in re.findall(r'\b\w+\b', str(x)))).upper() # change version str.upper()  #             
-    return df                                                                                  # 
-################################################################################################
-#
-#######################################################################################
-# => Exemplo de aplicação em diferentes colunas da mesma tabela                       #  
-tabela = pd.read_excel('/var/www/html/version2/files/for_test_setor.xlsx')            #
-#######################################################################################
-#
-######################################################
-# => Substitua com os nomes reais das colunas        #
-colunas_a_traduzir = ['se_setor', 'qu_setor', 'nome']# 
-#                                                    #
-######################################################
-#
-###################################################################################################
-traducoes = {
+# Existing line
+unicode_literal = u""
+
+# Your translations dictionary
+translations = {
     'SH' : 'Setor Habitacional',
     'ACR' :'Abrigo Cristo Redentor',
     'ADE' : 'Área de Desenvolvimento Econômico',
@@ -347,16 +324,15 @@ traducoes = {
     'SHVP' : 'Setor Habitacional Vicente Pires',
     'RCG' : 'Regimento de Cavalaria de Guarda do Exército',
     'PTS' : 'Projeto Técnico Social'
-    # Setor Habitacional Contagem Sobradinho - is empty...
 }
-############################################################################
-#              - Python Translater for geoprocessing files -               #
-############################################################################
-# => Aplica a tradução às colunas                                          #
-tabela_traduzida = traduzir_colunas(tabela, colunas_a_traduzir, traducoes) #
-############################################################################
-#
-#############################################################################################################################
-# => Salva o DataFrame atualizado em um novo arquivo xlsx já traduzindo os valores nas células                              #
-tabela_traduzida.to_excel('/var/www/html/version2/files/resultados/traducao_results/translate_table.xlsx', index=False)     #
-#############################################################################################################################
+
+# Word to translate
+word_to_translate = './var/www/html/python2.7_translater_files_geoprocessing/scripts/teste.txt'
+
+# Get the translation or use the original word if not found
+translated_word = translations.get(word_to_translate, word_to_translate)
+
+# Concatenate or append the translated word
+unicode_literal += translated_word
+
+print(unicode_literal)
